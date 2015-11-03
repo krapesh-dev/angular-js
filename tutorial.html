@@ -2,20 +2,27 @@
 <html ng-app="gitHubViewer">
     <head>
         <title>Angular JS</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     </head>
 
-    <body ng-controller="MainController">
+    <body class="container" ng-controller="MainController">
         <h1>{{ message }}</h1>
 
+
         <form name="searchUser" ng-submit="search(userName)">
-            <input type="search" placeholder="Username to search" ng-model="userName" required />
-            <input type="submit" value="Search" />
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Username" ng-model="userName" required>
+                <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit" value="Search">Search</button>
+                </span>
+            </div>        
+            <span>{{ counter }}</span>
         </form>
         
         <h4>{{ person.login }}</h4>
         <img ng-src="{{ person.avatar_url }}" style="width: 80px;"/>
 
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
